@@ -1,38 +1,61 @@
----
-title: 'Weather Report'
-place:
-  city: "Paris"
-  country: "France"
-wind: 33
-thanks: 'true'
-...
 
-## {{title}}
+# Using the recap pandoc filter
 
-* The temperature in {{ place.city | upper }}
-  was {{temperature|default('0')}} degrees.
-* The humidity was {{humidity|float * 100 }} %
-* The wind speed was {{wind |default(0)}} km/h
+## This is a first advice
 
-## It works in code blocks too !
+::: tip
+Create a TODO List
+:::
 
+## A second and a third one
 
-```bash
-echo 'hello {{ place.country }} !'
-```
+::: tip
+Add items to the list
+:::
 
-## It can be disabled on certain codeblocks
+::: tip
+Forget about the list
+:::
 
-``` { .yaml pandoc-jinja-disable=true }
----
-- name: "Ansible Playbook"
-   hosts: "{{ inventory_hosts }}"
-   gather_facts: yes
-...
-```
+## Also Warnings
 
-## Basic conditionals
+::: warning
 
-{{ 'Thank you' if thanks|bool }} Paris
+test **a**
 
+`b`
 
+[c]: c
+:::
+
+::: warning
+This is the last warning !!!
+:::
+
+## This is the recap as an ordered list
+
+::: {#recap .tip .OrderedList }
+This will be removed
+:::
+
+## This is the recap as a bullet list
+
+::: {#recap .tip .BulletList }
+:::
+
+## Complex notes will be stringified in lists
+
+::: {#recap .warning .BulletList}
+:::
+
+Use raw recap for complex notes !
+
+## This the raw recap
+
+::: {#recap .warning}
+:::
+
+## This is nothing
+
+::: {#recap .doesnotexist }
+:::

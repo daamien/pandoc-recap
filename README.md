@@ -1,8 +1,8 @@
-[![PyPI version](https://badge.fury.io/py/pandoc-jinja.svg)](https://pypi.org/project/pandoc-jinja/)
+[![PyPI version](https://badge.fury.io/py/pandoc-recap.svg)](https://pypi.org/project/pandoc-recap/)
 
-# pandoc-jinja
+# pandoc-recap
 
-Render pandoc metadata inside the document itself
+Render a recap of the notes inside a document
 
 ## Example
 
@@ -10,40 +10,47 @@ Write a markdown file, define metadata variable,
 and use them inside the with double brackets.
 
 ```mardown
----
-title: 'Greetings !'
-bonjour: 'Hello'
-...
+# My advices in life
 
-## {{ title | upper }}
+## Chapter 1 - Health
 
-{{ bonjour }}, {{name}} !
+::: tip
+Brush your teeth
+:::
+
+## Chapter 2 - Friendship
+
+::: tip
+Be nice
+:::
+
+## Conclusion
+
+::: {#recap .tip .BulletList}
 ```
 
-You can also define variable from the command line
-with `--metadata` or `--metadata-file` :
+Then call the filter when you generate the document:
 
 ```
-$ pandoc foo.md --filter=pandoc-jinja --metadata=name:world
-<h2 id="title">GREETINGS !</h2>
-<p>Hello, world !</p>
+$ pandoc foo.md --filter=pandoc-recap
+<h1 id="my-advices-in-life">My advices in life</h1>
+<h2 id="chapter-1---health">Chapter 1 - Health</h2>
+<div class="tip">
+<p>Brush your teeth</p>
+</div>
+<h2 id="chapter-2---friendship">Chapter 2 - Friendship</h2>
+<div class="tip">
+<p>Be nice</p>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>Brush your teeth</li>
+<li>Be nice</li>
+</ul>
 ```
-
-## Disclaimer
-
-* This filter is slow. In most cases, it is probably more efficient
-  to render the entire document once and for all with jinja and then
-  pass it to pandoc.
-
-* Jinja conditionals and loops are not supported.
 
 ## Install
 
 ```
-pip install pandoc-jinja
+pip install pandoc-recap
 ```
-
-## Similar filters
-
-* [pandoc-mustache](https://github.com/michaelstepner/pandoc-mustache)
-* [pandoc-abbreviations](https://github.com/scokobro/pandoc-abbreviations)

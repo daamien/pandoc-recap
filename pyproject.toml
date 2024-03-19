@@ -1,10 +1,10 @@
 [project]
-name = "pandoc-jinja"
-version = "0.2.2"
+name = "pandoc-recap"
+version = "0.0.1"
 authors = [
   { name="Damien Clochard", email="damien.clochard@dalibo.com" },
 ]
-description = "Render pandoc metadata variables inside the document"
+description = "Render a recap of the notes (fenced divs) of the document"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -14,16 +14,15 @@ classifiers = [
 ]
 
 dependencies = [
-    "panflute",
-    "jinja2"
+    "panflute"
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/daamien/pandoc-cover"
-"Bug Tracker" = "https://github.com/daamien/pandoc-cover/issues"
+"Homepage" = "https://github.com/daamien/pandoc-recap"
+"Bug Tracker" = "https://github.com/daamien/pandoc-recap/issues"
 
 [project.scripts]
-pandoc-jinja = 'pandoc_jinja:main'
+pandoc-recap = 'pandoc_recap:main'
 
 [tool.setuptools]
-py-modules = ["pandoc_jinja"]
+py-modules = ["pandoc_recap"]

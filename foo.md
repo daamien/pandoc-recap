@@ -1,9 +1,18 @@
----
-title: 'Greetings !'
-bonjour: 'Hello'
-...
+# My advices in life
 
-## {{title |upper}}
+## Chapter 1 - Health
 
-{{ bonjour }}, {{name}} !
+::: tip
+Brush your teeth
+:::
 
+## Chapter 2 - Friendship
+
+::: tip
+Be nice
+:::
+
+## Conclusion
+
+::: {#recap .tip .BulletList}
+:::
